@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 权限管理，继承自己写的可以对全局异常错误进行处理 -->
+	<package name="per" namespace="/" extends="default">
+
+		<action name="test" class="cn.qlq.Action.TestAction">
+			<result>/index.jsp</result>
+		</action>
+	
+		<action name="login" class="cn.qlq.Action.LoginAction" method="login">
+			<result name="login">/page/sys/login.jsp</result>
+		</action>
+		
+		<action name="first" class="cn.qlq.Action.FirstAction">
+			<result>/index.jsp</result>
+		</action>
+		
+		
+	</package>
+
+</struts>

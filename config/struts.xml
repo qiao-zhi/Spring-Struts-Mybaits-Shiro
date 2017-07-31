@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!-- 错误处理页面，其他配置文件可以继承这个package -->
+	<package name="default" namespace="/" extends="struts-default">
+		<!-- 全局结果集，所有action都可以使用 -->
+		<global-results>
+			<result name="myerror">/page/error/myerror.jsp</result>
+			<result name="error">/page/error/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<!-- 可以配置多个，如果捕获的异常类型不知道会被error2拦截 ，优先匹配明确类型的exception-->
+			<!-- 自定义异常 -->
+			<exception-mapping result="myerror"	exception="cn.qlq.Exception.MyException"></exception-mapping>
+			<!-- 未知异常 -->
+			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+	</package>
+	
+	
+	
+	<include file="struts/error.xml"></include>
+	<include file="struts/permission.xml"></include>
+	<include file="struts/paper.xml"></include>
+</struts>

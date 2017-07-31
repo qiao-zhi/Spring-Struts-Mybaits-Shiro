@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 这个是当Action不存在时，给出提示 -->
+	<package name="test2" extends="struts-default">
+		<default-action-ref name="notFound" />
+		<action name="notFound" class="cn.qlq.Action.TestAction2"
+			method="notFound">
+			<result name="notFound">/WEB-INF/jsp/404.jsp</result>
+		</action>
+	</package>
+</struts>

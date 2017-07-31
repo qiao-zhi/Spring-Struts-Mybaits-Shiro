@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 权限管理，继承自己写的可以对全局异常错误进行处理 -->
+	<package name="paper" namespace="/" extends="default">
+
+	
+		
+		<action name="paper_*" class="cn.qlq.Action.PaperAction" method="{1}" >
+			<result name="add">/page/tiku/addPaper.jsp</result>
+			<result name="find">/page/tiku/findPaper.jsp</result>
+			<result name="update">/page/tiku/updatePaper.jsp</result>
+			<result name="delete">/page/tiku/deletePaper.jsp</result>
+			<result>/page/tiku/paperList.jsp</result>
+		</action>
+		<action name="user_*" class="cn.qlq.Action.UserAction" method="{1}" >
+			<result name="add">/page/user/addUser.jsp</result>
+			<result name="find">/page/user/findUser.jsp</result>
+			<result name="update">/page/user/updateUser.jsp</result>
+			<result name="delete">/page/user/deleteUser.jsp</result>
+			<result>/page/user/userList.jsp</result>
+		</action>
+		
+		
+		
+		
+	</package>
+
+</struts>

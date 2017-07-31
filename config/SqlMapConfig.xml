@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+
+	
+	
+	<!-- 加载db.properties文件(中间可以加，一般不在中间写) -->
+	<properties resource="db.properties">
+		 <!--  <property name="ss" value="SS"/>-->
+	</properties>
+	
+  	<!--  需要时配置这个
+  	<settings>
+  	
+  	</settings>-->
+  	
+  	<settings>
+  		<!-- 关闭积极加载，开启消极加载，也就是开启自动加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 开启二级缓存的总开关 -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+  	<!-- 定义别名 -->
+  	<typeAliases>
+  		<!-- 定义单个别名 
+  		<typeAlias type="cn.itcast.mybatis.po.User" alias="user"/>-->
+  		
+  		<!-- 定义批量别名 ,只需要指定包名，使用时直接使用类名字
+  		name:包的完整名字
+  		-->
+  		<package name="cn.xm.bean"/>
+  		
+  	</typeAliases>
+  	
+  	
+  	
+	
+	<!-- 和spring整合后 environments配置将废除-->
+	<environments default="development">
+		<environment id="development">
+		<!-- 使用jdbc事务管理，事务控制由mybatis-->
+			<transactionManager type="JDBC" />
+		<!-- 数据库连接池，由mybatis管理-->
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	
+	
+	
+	<!-- 加载映射文件,将User.xml映射到该配置文件 -->
+	<mappers>
+      
+       
+       <!-- class映射单个:
+       mapper.xml与mapper.java同目录下且名字相同。且为mapper代理
+       <mapper class="cn.itcast.mybatis.mapper.UserMapper"/>
+        -->
+       
+       <!-- class批量映射:
+       mapper.xml与mapper.java同目录下且名字相同。且为mapper代理
+                只需要指定包名
+        -->
+        <package name="cn.xm.mapper"/>
+
+
+	</mappers>
+	
+	
+
+	
+</configuration>
